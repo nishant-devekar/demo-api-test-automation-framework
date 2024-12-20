@@ -55,7 +55,12 @@ public class StepDefinition {
             case "LOGIN":
                 String loginURI = properties.getProperty("login");
                 response = commonActions.sendRequest("POST", loginURI, responseCode);
-                token = response.jsonPath().get("token").toString();
+                try {
+                    token = response.jsonPath().get("token").toString();
+                }catch(NullPointerException nullPointerException)
+                {
+                    Reporter.log(true,"Tested with invalid credentials");
+                }
                 break;
             case "LOGOUT":
                 String logoutURI = properties.getProperty("logout");
