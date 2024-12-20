@@ -94,7 +94,7 @@ public class CommonUtils {
     public static Response getResponse(String operationType, String request, String uri){
         Response response = null;
         RequestSpecification httpRequest = RestAssured.given();
-        httpRequest.header("Content-Type", "application/json").body(request);
+        httpRequest.header("Content-Type", "application/json").relaxedHTTPSValidation().body(request);
         switch (operationType.toUpperCase()){
             case "GET":
                 response = httpRequest.request(Method.GET, uri);

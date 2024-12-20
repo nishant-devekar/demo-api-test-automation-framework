@@ -1,12 +1,10 @@
 package jsonKeyMappings;
 
-public enum ObjectKeys {
-    id("id"),
-    name("name"),
-    message("message");
+public enum LoginKeys {
+    test("test");
 
     private final String jsonPath;
-    ObjectKeys(String jsonPath){
+    LoginKeys(String jsonPath){
         this.jsonPath = jsonPath;
     }
 
